@@ -1,0 +1,106 @@
+Memory Allocations
+
+
+$8000:npc/trigger/etc storage**
+$8177:open (185 in size)
+$83Ec: character dir
+L1: map spritebuffer (384), enemy battle info*
+L1+384:map char-store-area (64) *
+
+L1+544: list item freeram (battle moves, items, etc)*
+L2: NPC convos**
+L3: backbuf***
+L4: Player save data***
+L5: Map metadata** ($20 bytes)
+L5+$20:swap area for drawing bitmaps, masked sprites, and item/move metadata*
+L5+$80:free***
+L6: frontbuf
+tempvar: map**
+tempvar+2304: overworld map**
+tempvar+2880:
+
+Y1 tiles
+Y1+9216 character sprites
+Y1+10368 NPC sprites
+Y2 Maps (Compressed)
+Y3 MapInfo
+Y5 Overworld (temp) (576)
+Y5 Font
+Y6 NPC convo index
+Y7 NPC convos
+Y8 Battle character sprites
+Y8+6400 Enemy sprites
+Y9 Movelist/Itemlist/EnemyList
+
+
+There will be a master-map...a tilemap of map pieces...each map 'piece' will be 32x32 tiles
+
+Tile stuff
+0-31 non-enemy
+	0-15 fastest
+	16-23 medium
+	24-31 slow
+32-47 enemy
+	32-35 fastest
+	36-41 medium
+	42-47 slow
+
+____________
+Map metadata
+------------
+
+$1C bytes per entry
+$00-$14:name (20 characters, plus null terminator)	(MName)
+$15-16:pointer to mapdata
+$16:how many NPCs
+$17:how many trigger tiles
+$18:how many warp tiles
+$19:	avg level of enemies 				(AvgLv)
+$1A:	enemy type 1 					(Ene1)
+$1B:	enemy type 2 					(Ene2)
+$1C: 	enemy type 3 					(Ene3)
+$1E:map size
+
+;_____________
+;Item metadata
+;_____________
+
+;$15 bytes per entry
+
+;$00-$0F:item name (15 chars, plus null terminator) 	
+;$10:	equip (3-8 for what type) or useable (2), functional item (1), no function (0)
+;$11:	stat to affect (0-7) (or function to call if type 1)
+;$12:	how many points to increase/decrease 
+;$13:	stat to affect 2 	
+;$14:	points to inc/dec 2 
+;_____________
+;enemy metadata
+;_____________
+
+;$18 bytes per entry
+
+;$00-$09: enemy name (9 chars, plus null terminator) 
+;$0A: enemy type
+;$0B-$13: base stats
+;14-17:skills
+
+_____________
+move metadata
+_____________
+
+$17 bytes per entry
+
+$00-$0F: move name (15 chars, plus null terminator) 	(AName)
+$10: move type 						(Atype)
+$11: move animation					(AAnim)
+$12: damage						(Admg)
+$13: stat to boost1					(AStat)
+$14: amt to boost					(AStat+1)
+$15: stat to boost2					(AStat+2)
+$16: amt. to boost2					(AStat+3)
+
+********************
+*Routine Memory Use*
+********************
+
+DrawM:

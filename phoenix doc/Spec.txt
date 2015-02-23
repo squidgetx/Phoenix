@@ -1,0 +1,204 @@
+
+*********
+*Outline*
+*********
+
+Title Screen
+	Draw title screen
+	Menu*
+
+if new game
+	new game*
+else
+	load game*
+end
+
+setup*
+
+loop
+	if menu key
+		main menu*
+	end
+	if arrow key
+		move*
+	end
+	if interact ket
+		interact*
+	end
+	
+	!if rand^constant
+		battle*
+	end
+
+	display*
+end
+
+**********
+*New game*
+**********
+intro cutscene*
+	run cutscene* 0
+ask name
+	pokemon style input box
+set new player values
+	zero everythign
+	set level to 5
+	call stat calculation*
+
+***********
+*Load game*
+***********
+find save file
+copy into L4
+
+*******
+*Setup*
+*******
+
+Load x,y to X,Y
+MapLoad*
+Draw Map()
+
+***********
+*Main Menu*
+***********
+Draw menu*
+>Items
+	loop items, display in list (L1+500)
+	upon selecting item, use/equip, or drop
+	use> look up behavior 
+	equip> equip that shit
+>Save
+	save game; 
+>Quit
+press clear, return to game (redraw map)
+
+********
+*Moving*
+********
+
+if still centered movement:
+
+copy in next row of sprites
+for(12)
+shift screen in direction of movement
+shift in last pixel row using sprites
+display*
+end
+
+
+otherwise
+
+draw tiles over character
+move character
+
+if character moving off of edge of map
+check if other map available*
+map load
+scroll whole screen over
+change coordinates accordingly to fit onto new map
+
+
+*********
+*Display*
+*********
+
+Theere will be a 'main' display routine while moving on the tilemap, known as CharD. It backs up the area where the character will be drawn, draws the character, dispgraph^r, and restores the area
+
+**********
+*Interact*
+**********
+Search npc database
+	>if found, npc()*
+otherwise, search trigger tile database
+	>if found, npc()*
+
+*****
+*NPC*
+*****
+
+Copy from embers/old version of Ash
+look up convo from argument in npc meta
+load convo into L1+10 or somethingg
+execute...
+
+
+Slight change, all npc routine vars stay in L1
+L1,L1+1 size of convo
+L1+2,L1+3: position in convo
+
+********
+*battle*
+********
+
+
+calculate enemy, level, stats of enemy, etc...his battle stats will go into L5
+
+
+DrawBattleScreen:
+	draw character
+	draw enemy
+	draw hp boxes
+	draw action box
+
+
+playeraction:
+	select action
+	>attack
+	>item (just run item routine)
+	>run
+		Attacking:	
+			display list of moves
+			select, execute
+		AttacK:
+			look up move in movemetadata
+			damage formula, animate, apply stat changes, etc
+
+enemyaction:
+	random move select
+	attack
+animating:
+erase player sprite
+apply animation
+
+
+Loop
+	decide who goes first
+		if bla
+		playeraction()
+		enemy action
+		else
+		enemyaction	
+		playeraction()
+	drawbattlescreen
+end
+
+
+End of battle recalculate stats...this will reset battle stat changes and also enable stats to change slightly due to EVs w/o leveling up
+
+return
+L1 not touched, npc data remains secure
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

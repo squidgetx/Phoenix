@@ -1,0 +1,103 @@
+.Item Selection Code
+Lbl ItemSelector
+41->K
+length(oItem)-L
+While 1
+	!If +6
+		Return -1
+	End
+	If K
+		Box(30,0,66,40)
+		3->r2
+		B*2+oItem->F
+		For(E,0,5)
+			If {F}->r1
+				GetI()
+				L5+e20->r3
+				CText(40)
+				Text(r2-1*256+84)
+				Text"x"
+				Text{F+1}>Dec
+			Else
+				Str0N->r3
+				CText(40)
+			End
+				r2+7->r2
+				F+2->F
+		End
+		!If K-1
+			A++
+			!If -5
+				4->A
+				If A+E<=L
+					B++
+				End
+			End
+		End
+		!If K-4
+			A--
+			!If +1
+				->A
+				B--
+				!If +1
+					->B
+				End
+			End
+		End
+		Text(A*7+2*256+34)
+		Text Str1P
+		
+		InfI({A+B->I*2+oItem})
+	Else
+		Delay()
+	End
+	DispGraphrr
+End!If getKey->K-54
+Return A+B
+.return index in item list
+
+.ItemHandling Code
+!If {L5+e30}->E
+.if item type = 0 then quit
+GotoI2
+If e>2 and Z
+Goto I2
+.if item type not consumable/booster and battle, quit
+End
+Show Use/Equip/Drop menu
+
+Drop:
+RemI(A+B)
+Return
+End
+
+Use/Equip
+!IF E-1
+.Functional
+Else!If -1
+	.consumable
+	min({L5+e32}r+HP,HPM)->HP
+	min(L5+e35}r+MP,MPM)->MP
+	RemI(I)
+Else!If-1
+	L5+e31->E
+	For(2)
+		If {E}
+			{{E}-3*2+oStr->A}r+{e+1}r->{a}r
+			E+3->E
+		end
+	end
+
+	RemI(I)
+Else
+	{{L5+e30}+oEquI-4->r2}->D
+	{I*2+oItem}->{r2}
+	RemI(i)
+	AddI(D)
+End
+ReturnIfZ
+GotoItem
+
+
+
+End

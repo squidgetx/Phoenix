@@ -1,0 +1,30 @@
+Battle engine structure
+
+
+
+load enemy stats
+mainbattleloop()
+if you're dead, die
+if enemy dead
+	xp
+	reward screen and stuff
+	return
+
+
+
+draw battle screen (Enemy HP stuff, sprite, char HP stuff, sprite)
+
+your turn ( select option, calculate, animate, drawbattlescreen, return if enemy/your hp = 0)
+enemy turn (*random option*, calculate animate, drawbattlescreen, return if enemy/your hp = 0)
+
+mainbattleloop:
+
+if enemy turn first
+	enemyturn()
+	yourturn()
+else
+	yourturn()
+	enemyturn()
+end
+
+

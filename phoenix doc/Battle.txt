@@ -1,0 +1,64 @@
+The battle engine will be turn based, similar to Pokemon and other common RPG battle engine styles. 
+
+[b]Battle Stats:[/b] (I've modified this slightly from the original, which was essentially Pokemon, in favor of a slightly different mechanic)
+HP: Um, HP. Yeah, self explanatory
+MP: MP
+Strength: Determines damage potential, similar to Runescape Strength. Sets a max of possible damage.
+Skill: Higher skill means higher likelihood of hitting high within your range. (RS attack)
+Defense: All around defense, for both physical and mystical attacks
+Speed: Determines who moves first
+Mystic Strength: Magic strength
+Mystic Skill: same (Names may change later on)
+[b]Battle Types[/b]
+Unchanged from the original, there will be 6 battle types: 3 physical, 3 magical, each with their own stat tendencies. Similar to Pokemon, attacks will be typed and bonuses applied accordingly. Each type also has a limited move-learning ability and can only wield certain items. Overall, the mystic types are more unbalanced/interesting than the physical types.
+-Warrior: Standard sword and shield dudes. Kind of a bunch of thugs
+-Archer: Invisible snipers.
+-Assassin: Glass cannons, fast but weak.
+
+-Holy/Spirit: Religious zealots, only their God grants them magic powers. Watch out....
+-Undead: They're already dead! What can you do...They're tanks.
+-Black/Shadow: Spawn of the night. Fast, poisonous, but even weaker than assassins.
+
+[b]Battle Calculations[/b]
+Speed calculations: Unlike Pokemon, which uses a fairly black and white method for determining who is faster, my engine will use the following calculation: Speed[sub]player1[/sub]/(Speed[sub]p1[/sub]+Speed[sub]p2[/sub]) is the chance that player 1 will go first. This will be realized by the condition [tt]rand^(speed1+speed2) > speed2[/tt]
+
+Damage calculation: Strength/Defense will basically be our indication of how hard we can hit so Strength*AttackPower/Defense is fine for setting the max of attack. Now, Skill will be used to determine the relationship between the actual damage and our base median figure. An unskilled fighter will have a large, low value set. A skilled fighter will be able to consistently hit in a high value, small set. So, we'll use an inverse relationship in which the range of damage is [tt](256 - Skill)*dmg/256[/tt] This value will be subtracted from the maxdmg from the Strength/Defense section of the equ, making a level 1 skill fighter hitting anywhere from 0 to his max, while a level 256 skill fighter will always hit his max. This is then algebraically optimized to (Skill )*Max/256+Max. Attacks can have power levels generally capped at 256, while items will simply increase the stats of strength, attack, etc. Note that this means that if you can get your net skill over 256, say with a skill level of 200 and a sword of +100 skill, you can hit consistently over the "max damage" determined by the Strength/Defense calculation. If at any point overflow is detected, the damage calculation subroutine will exit and simply return 65535 as the amount of damage to be dealt.
+
+There will be a type-advantage mechanic nearly identical to Pokemon's. Table below: [tt]
+x Wr Ar As Ho Un Bl
+Wr 1  2  1  2  .5 .5
+Ar 2  1  2  2  .5 0 
+As 2  1  .5 1  1  1
+Ho .5 1  .5 1  2  2
+Un 1  1  1  1  1  1 
+Bl 1  1  2  .5 1  1 [/tt]
+
+[b]Stat Calculation[/b]
+Stat calculations will follow the following formula:
+Stat = (BaseStat*16 + TrainingExpValue) * Level / 100 + 5
+
+Base stats for the player types here:[tt]
+  HP MP Str Skl Spe Def MSt MSk Total
+Wr 12 8  12  8   9  10  8   8   74
+Ar 11  9   10  12  11  7   8   8   80
+As 9  7   13  13  13  5   7   9   86
+Ho 12 11 5   5   9   9   12   12  75
+Un 14 10 15  7   6   12   12   6   82
+Bl 5  10  12  12  15  4  13  14   87
+[/tt]
+
+TrainingExpValue is determined by what moves you use. Every time you use a certain type move, the corresponding stat for total "points" will be incremented. Points convert to TrainingExpValue by dividing by 8.
+
+With this system, the highest a stat can be (not minding the TEV) is the Black/Shadow lvl 100 speed, which is 245.
+
+[b]Levels[/b] are grown with experience via the following formula: 
+To grow to level n, you need:
+exp(n) = 2n^2+2n
+samples exp(6) = 84XP
+exp(30) = 1860XP
+exp(60) = 7320XP
+exp(100) = 20200XP
+
+Instead of bothering to keep track of total XP, I'll only keep track of how much to the next level, avoiding annoying overflow problems, plus I'll save a few bytes in the calculations too :D.
+
+Enemies will give experience simply by averaging all their stats together then multiplying by a constant. I'll figure out what that constant is, but as a rough rule of thumb lvl 100 enemies will give roughly 2k xp and lvl 3 enemies will give ~10 xp.

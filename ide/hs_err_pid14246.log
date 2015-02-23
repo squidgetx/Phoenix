@@ -1,0 +1,371 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0xb55fd8ef, pid=14246, tid=3077688128
+#
+# JRE version: 6.0_24-b24
+# Java VM: OpenJDK Client VM (20.0-b12 mixed mode, sharing linux-x86 )
+# Derivative: IcedTea6 1.11.5
+# Distribution: Ubuntu 12.04 LTS, package 6b24-1.11.5-0ubuntu1~12.04.1
+# Problematic frame:
+# J  com.sun.tools.javac.comp.Resolve.findMethod(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;ZLcom/sun/tools/javac/code/Symbol;ZZZ)Lcom/sun/tools/javac/code/Symbol;
+#
+# If you would like to submit a bug report, please include
+# instructions how to reproduce the bug and visit:
+#   https://bugs.launchpad.net/ubuntu/+source/openjdk-6/
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0xb7505400):  JavaThread "main" [_thread_in_Java, id=14248, stack(0xb76cc000,0xb771d000)]
+
+siginfo:si_signo=SIGSEGV: si_errno=0, si_code=128 (), si_addr=0x00000000
+
+Registers:
+EAX=0x00000000, EBX=0x7073cec8, ECX=0x7ac123f8, EDX=0x7073ce88
+ESP=0xb771b6c0, EBP=0xb771b7ec, ESI=0x00000000, EDI=0x00000000
+EIP=0xb55fd8ef, EFLAGS=0x00210246, CR2=0x00000000
+
+Top of Stack: (sp=0xb771b6c0)
+0xb771b6c0:   708052b8 7073cec8 7073cf30 706e0300
+0xb771b6d0:   7ac3fd88 00000000 00000000 00000000
+0xb771b6e0:   8f893308 00000000 b771b6f4 b771b724
+0xb771b6f0:   b5502f87 7ac11600 b771b744 b5502e21
+0xb771b700:   7abbe9b0 7ac40a48 8f8fff31 b771b740
+0xb771b710:   b5502e21 7ac40a48 7ac123f8 708052b8
+0xb771b720:   00000000 707f5ce8 7ac3fd88 7073ce88
+0xb771b730:   706e0300 706e0340 8f8a3a88 00000000 
+
+Instructions: (pc=0xb55fd8ef)
+0xb55fd8cf:   00 00 89 7c 24 14 8b 84 24 d0 00 00 00 89 44 24
+0xb55fd8df:   18 8b b4 24 d4 00 00 00 89 74 24 1c 8b 4c 24 58
+0xb55fd8ef:   e8 ac 29 00 00 8b f8 89 7c 24 78 8b 4c 24 74 b8
+0xb55fd8ff:   ff ff ff ff e8 e8 68 f3 ff 90 85 05 00 71 73 b7 
+
+Register to memory mapping:
+
+EAX=0x00000000 is an unknown value
+EBX=0x7073cec8 is an oop
+com.sun.tools.javac.util.List 
+ - klass: 'com/sun/tools/javac/util/List'
+ECX=0x7ac123f8 is an oop
+com.sun.tools.javac.comp.Resolve 
+ - klass: 'com/sun/tools/javac/comp/Resolve'
+EDX=0x7073ce88 is an oop
+com.sun.tools.javac.comp.Env 
+ - klass: 'com/sun/tools/javac/comp/Env'
+ESP=0xb771b6c0 is pointing into the stack for thread: 0xb7505400
+EBP=0xb771b7ec is pointing into the stack for thread: 0xb7505400
+ESI=0x00000000 is an unknown value
+EDI=0x00000000 is an unknown value
+
+
+Stack: [0xb76cc000,0xb771d000],  sp=0xb771b6c0,  free space=317k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+J  com.sun.tools.javac.comp.Resolve.findMethod(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;ZLcom/sun/tools/javac/code/Symbol;ZZZ)Lcom/sun/tools/javac/code/Symbol;
+j  com.sun.tools.javac.comp.Resolve.resolveConstructor(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;ZZ)Lcom/sun/tools/javac/code/Symbol;+19
+j  com.sun.tools.javac.comp.Resolve.resolveConstructor(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Symbol;+21
+j  com.sun.tools.javac.comp.Attr.visitNewClass(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V+721
+j  com.sun.tools.javac.tree.JCTree$JCNewClass.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V+2
+j  com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;ILcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;+36
+j  com.sun.tools.javac.comp.Attr.attribExpr(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;+21
+j  com.sun.tools.javac.comp.Attr.visitAssign(Lcom/sun/tools/javac/tree/JCTree$JCAssign;)V+37
+j  com.sun.tools.javac.tree.JCTree$JCAssign.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V+2
+j  com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;ILcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;+36
+j  com.sun.tools.javac.comp.Attr.attribExpr(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Type;+8
+j  com.sun.tools.javac.comp.Attr.visitExec(Lcom/sun/tools/javac/tree/JCTree$JCExpressionStatement;)V+9
+j  com.sun.tools.javac.tree.JCTree$JCExpressionStatement.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V+2
+j  com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;ILcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;+36
+j  com.sun.tools.javac.comp.Attr.attribStat(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Type;+7
+j  com.sun.tools.javac.comp.Attr.attribStats(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Env;)V+18
+j  com.sun.tools.javac.comp.Attr.visitBlock(Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V+198
+j  com.sun.tools.javac.tree.JCTree$JCBlock.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V+2
+j  com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;ILcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;+36
+j  com.sun.tools.javac.comp.Attr.attribStat(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Type;+7
+j  com.sun.tools.javac.comp.Attr.visitMethodDef(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V+902
+j  com.sun.tools.javac.tree.JCTree$JCMethodDecl.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V+2
+j  com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;ILcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;+36
+j  com.sun.tools.javac.comp.Attr.attribStat(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Type;+7
+j  com.sun.tools.javac.comp.Attr.attribClassBody(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V+430
+j  com.sun.tools.javac.comp.Attr.attribClass(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V+359
+j  com.sun.tools.javac.comp.Attr.attribClass(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V+9
+j  com.sun.tools.javac.main.JavaCompiler.attribute(Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/Env;+189
+j  com.sun.tools.javac.main.JavaCompiler.compile2()V+177
+j  com.sun.tools.javac.main.JavaCompiler.compile(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Ljava/lang/Iterable;)V+86
+j  com.sun.tools.javac.main.Main.compile([Ljava/lang/String;Lcom/sun/tools/javac/util/Context;Lcom/sun/tools/javac/util/List;Ljava/lang/Iterable;)I+507
+j  com.sun.tools.javac.main.Main.compile([Ljava/lang/String;Lcom/sun/tools/javac/util/Context;)I+7
+j  com.sun.tools.javac.main.Main.compile([Ljava/lang/String;)I+15
+j  com.sun.tools.javac.Main.compile([Ljava/lang/String;)I+12
+j  com.sun.tools.javac.Main.main([Ljava/lang/String;)V+97
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x2102b6]  JavaCalls::call_helper(JavaValue*, methodHandle*, JavaCallArguments*, Thread*)+0x2c6
+C  0xb7505400
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0xb753c800 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=14254, stack(0xb4aaf000,0xb4b00000)]
+  0xb753a800 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=14253, stack(0xb4e2e000,0xb4eaf000)]
+  0xb7538c00 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=14252, stack(0xb504c000,0xb509d000)]
+  0xb7534c00 JavaThread "Finalizer" daemon [_thread_blocked, id=14251, stack(0xb4eaf000,0xb4f00000)]
+  0xb7533400 JavaThread "Reference Handler" daemon [_thread_blocked, id=14250, stack(0xb509d000,0xb50ee000)]
+=>0xb7505400 JavaThread "main" [_thread_in_Java, id=14248, stack(0xb76cc000,0xb771d000)]
+
+Other Threads:
+  0xb7531800 VMThread [stack: 0xb50ee000,0xb516f000] [id=14249]
+  0xb753ec00 WatcherThread [stack: 0xb4a2e000,0xb4aaf000] [id=14255]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ def new generation   total 2432K, used 2051K [0x70580000, 0x70820000, 0x7ab80000)
+  eden space 2176K,  82% used [0x70580000, 0x70740c10, 0x707a0000)
+  from space 256K,  99% used [0x707e0000, 0x7081fff8, 0x70820000)
+  to   space 256K,   0% used [0x707a0000, 0x707a0000, 0x707e0000)
+ tenured generation   total 5504K, used 5360K [0x7ab80000, 0x7b0e0000, 0x8f780000)
+   the space 5504K,  97% used [0x7ab80000, 0x7b0bc0d0, 0x7b0bc200, 0x7b0e0000)
+ compacting perm gen  total 12288K, used 2642K [0x8f780000, 0x90380000, 0x93780000)
+   the space 12288K,  21% used [0x8f780000, 0x8fa14838, 0x8fa14a00, 0x90380000)
+    ro space 10240K,  73% used [0x93780000, 0x93ee05c8, 0x93ee0600, 0x94180000)
+    rw space 12288K,  60% used [0x94180000, 0x948c9038, 0x948c9200, 0x94d80000)
+
+Code Cache  [0xb5500000, 0xb5608000, 0xb7500000)
+ total_blobs=439 nmethods=310 adapters=65 free_code_cache=32501888 largest_free_block=64
+
+Dynamic libraries:
+00110000-00117000 r-xp 00000000 08:05 524416     /lib/i386-linux-gnu/librt-2.15.so
+00117000-00118000 r--p 00006000 08:05 524416     /lib/i386-linux-gnu/librt-2.15.so
+00118000-00119000 rw-p 00007000 08:05 524416     /lib/i386-linux-gnu/librt-2.15.so
+00119000-0013f000 r-xp 00000000 08:05 1574364    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/libjava.so
+0013f000-00140000 r--p 00025000 08:05 1574364    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/libjava.so
+00140000-00142000 rw-p 00026000 08:05 1574364    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/libjava.so
+00142000-0014d000 r-xp 00000000 08:05 524413     /lib/i386-linux-gnu/libnss_files-2.15.so
+0014d000-0014e000 r--p 0000a000 08:05 524413     /lib/i386-linux-gnu/libnss_files-2.15.so
+0014e000-0014f000 rw-p 0000b000 08:05 524413     /lib/i386-linux-gnu/libnss_files-2.15.so
+0014f000-00156000 r-xp 00000000 08:05 1574365    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/libzip.so
+00156000-00157000 r--p 00006000 08:05 1574365    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/libzip.so
+00157000-00158000 rw-p 00007000 08:05 1574365    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/libzip.so
+00178000-001a2000 r-xp 00000000 08:05 524420     /lib/i386-linux-gnu/libm-2.15.so
+001a2000-001a3000 r--p 00029000 08:05 524420     /lib/i386-linux-gnu/libm-2.15.so
+001a3000-001a4000 rw-p 0002a000 08:05 524420     /lib/i386-linux-gnu/libm-2.15.so
+00248000-0025e000 r-xp 00000000 08:05 528529     /lib/i386-linux-gnu/libnsl-2.15.so
+0025e000-0025f000 r--p 00015000 08:05 528529     /lib/i386-linux-gnu/libnsl-2.15.so
+0025f000-00260000 rw-p 00016000 08:05 528529     /lib/i386-linux-gnu/libnsl-2.15.so
+00260000-00262000 rw-p 00000000 00:00 0 
+00398000-003a2000 r-xp 00000000 08:05 524417     /lib/i386-linux-gnu/libnss_nis-2.15.so
+003a2000-003a3000 r--p 00009000 08:05 524417     /lib/i386-linux-gnu/libnss_nis-2.15.so
+003a3000-003a4000 rw-p 0000a000 08:05 524417     /lib/i386-linux-gnu/libnss_nis-2.15.so
+003b2000-003d2000 r-xp 00000000 08:05 524421     /lib/i386-linux-gnu/ld-2.15.so
+003d2000-003d3000 r--p 0001f000 08:05 524421     /lib/i386-linux-gnu/ld-2.15.so
+003d3000-003d4000 rw-p 00020000 08:05 524421     /lib/i386-linux-gnu/ld-2.15.so
+0074a000-0074e000 r-xp 00000000 08:05 1574427    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/jli/libjli.so
+0074e000-0074f000 r--p 00003000 08:05 1574427    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/jli/libjli.so
+0074f000-00750000 rw-p 00004000 08:05 1574427    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/jli/libjli.so
+0076d000-00774000 r-xp 00000000 08:05 524411     /lib/i386-linux-gnu/libnss_compat-2.15.so
+00774000-00775000 r--p 00006000 08:05 524411     /lib/i386-linux-gnu/libnss_compat-2.15.so
+00775000-00776000 rw-p 00007000 08:05 524411     /lib/i386-linux-gnu/libnss_compat-2.15.so
+00779000-00795000 r-xp 00000000 08:05 525234     /lib/i386-linux-gnu/libgcc_s.so.1
+00795000-00796000 r--p 0001b000 08:05 525234     /lib/i386-linux-gnu/libgcc_s.so.1
+00796000-00797000 rw-p 0001c000 08:05 525234     /lib/i386-linux-gnu/libgcc_s.so.1
+007d5000-00978000 r-xp 00000000 08:05 524409     /lib/i386-linux-gnu/libc-2.15.so
+00978000-00979000 ---p 001a3000 08:05 524409     /lib/i386-linux-gnu/libc-2.15.so
+00979000-0097b000 r--p 001a3000 08:05 524409     /lib/i386-linux-gnu/libc-2.15.so
+0097b000-0097c000 rw-p 001a5000 08:05 524409     /lib/i386-linux-gnu/libc-2.15.so
+0097c000-0097f000 rw-p 00000000 00:00 0 
+00a76000-00b4e000 r-xp 00000000 08:05 1449635    /usr/lib/i386-linux-gnu/libstdc++.so.6.0.16
+00b4e000-00b4f000 ---p 000d8000 08:05 1449635    /usr/lib/i386-linux-gnu/libstdc++.so.6.0.16
+00b4f000-00b53000 r--p 000d8000 08:05 1449635    /usr/lib/i386-linux-gnu/libstdc++.so.6.0.16
+00b53000-00b54000 rw-p 000dc000 08:05 1449635    /usr/lib/i386-linux-gnu/libstdc++.so.6.0.16
+00b54000-00b5b000 rw-p 00000000 00:00 0 
+00be0000-00be3000 r-xp 00000000 08:05 525371     /lib/i386-linux-gnu/libdl-2.15.so
+00be3000-00be4000 r--p 00002000 08:05 525371     /lib/i386-linux-gnu/libdl-2.15.so
+00be4000-00be5000 rw-p 00003000 08:05 525371     /lib/i386-linux-gnu/libdl-2.15.so
+00c17000-00c18000 r-xp 00000000 00:00 0          [vdso]
+00d12000-00d26000 r-xp 00000000 08:05 525324     /lib/i386-linux-gnu/libz.so.1.2.3.4
+00d26000-00d27000 r--p 00013000 08:05 525324     /lib/i386-linux-gnu/libz.so.1.2.3.4
+00d27000-00d28000 rw-p 00014000 08:05 525324     /lib/i386-linux-gnu/libz.so.1.2.3.4
+00f06000-00f11000 r-xp 00000000 08:05 1574425    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/libverify.so
+00f11000-00f12000 ---p 0000b000 08:05 1574425    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/libverify.so
+00f12000-00f13000 r--p 0000b000 08:05 1574425    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/libverify.so
+00f13000-00f14000 rw-p 0000c000 08:05 1574425    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/libverify.so
+00f91000-00fa8000 r-xp 00000000 08:05 524418     /lib/i386-linux-gnu/libpthread-2.15.so
+00fa8000-00fa9000 r--p 00016000 08:05 524418     /lib/i386-linux-gnu/libpthread-2.15.so
+00fa9000-00faa000 rw-p 00017000 08:05 524418     /lib/i386-linux-gnu/libpthread-2.15.so
+00faa000-00fac000 rw-p 00000000 00:00 0 
+00fac000-014c0000 r-xp 00000000 08:05 1574370    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/client/libjvm.so
+014c0000-014c1000 ---p 00514000 08:05 1574370    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/client/libjvm.so
+014c1000-014d8000 r--p 00514000 08:05 1574370    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/client/libjvm.so
+014d8000-014e5000 rw-p 0052b000 08:05 1574370    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/client/libjvm.so
+014e5000-018fd000 rw-p 00000000 00:00 0 
+08048000-08051000 r-xp 00000000 08:05 1575314    /usr/lib/jvm/java-6-openjdk-i386/bin/javac
+08051000-08052000 r--p 00008000 08:05 1575314    /usr/lib/jvm/java-6-openjdk-i386/bin/javac
+08052000-08053000 rw-p 00009000 08:05 1575314    /usr/lib/jvm/java-6-openjdk-i386/bin/javac
+09255000-09276000 rw-p 00000000 00:00 0          [heap]
+70580000-70820000 rw-p 00000000 00:00 0 
+70820000-7ab80000 rw-p 00000000 00:00 0 
+7ab80000-7b0e0000 rw-p 00000000 00:00 0 
+7b0e0000-8f780000 rw-p 00000000 00:00 0 
+8f780000-90380000 rw-p 00000000 00:00 0 
+90380000-93780000 rw-p 00000000 00:00 0 
+93780000-93ee1000 r--s 00001000 08:05 1575076    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/client/classes.jsa
+93ee1000-94180000 rw-p 00000000 00:00 0 
+94180000-948ca000 rw-p 00762000 08:05 1575076    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/client/classes.jsa
+948ca000-94d80000 rw-p 00000000 00:00 0 
+94d80000-94e7c000 rw-p 00eac000 08:05 1575076    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/client/classes.jsa
+94e7c000-95180000 rw-p 00000000 00:00 0 
+95180000-95188000 r-xs 00fa8000 08:05 1575076    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/client/classes.jsa
+95188000-95580000 rw-p 00000000 00:00 0 
+b4600000-b47c1000 rw-p 00000000 00:00 0 
+b47c1000-b4800000 ---p 00000000 00:00 0 
+b4800000-b4829000 rw-p 00000000 00:00 0 
+b4829000-b4900000 ---p 00000000 00:00 0 
+b49ce000-b4a2e000 r--s 00d92000 08:05 3672720    /usr/lib/jvm/java-6-openjdk-i386/lib/tools.jar
+b4a2e000-b4a2f000 ---p 00000000 00:00 0 
+b4a2f000-b4aaf000 rw-p 00000000 00:00 0 
+b4aaf000-b4ab2000 ---p 00000000 00:00 0 
+b4ab2000-b4b00000 rw-p 00000000 00:00 0 
+b4b00000-b4d00000 r--p 00000000 08:05 1449989    /usr/lib/locale/locale-archive
+b4d00000-b4d21000 rw-p 00000000 00:00 0 
+b4d21000-b4e00000 ---p 00000000 00:00 0 
+b4e2e000-b4e31000 ---p 00000000 00:00 0 
+b4e31000-b4eaf000 rw-p 00000000 00:00 0 
+b4eaf000-b4eb2000 ---p 00000000 00:00 0 
+b4eb2000-b4f00000 rw-p 00000000 00:00 0 
+b4f00000-b4ffe000 rw-p 00000000 00:00 0 
+b4ffe000-b5000000 ---p 00000000 00:00 0 
+b504c000-b504f000 ---p 00000000 00:00 0 
+b504f000-b509d000 rw-p 00000000 00:00 0 
+b509d000-b50a0000 ---p 00000000 00:00 0 
+b50a0000-b50ee000 rw-p 00000000 00:00 0 
+b50ee000-b50ef000 ---p 00000000 00:00 0 
+b50ef000-b51a2000 rw-p 00000000 00:00 0 
+b51a2000-b5334000 r--s 037c2000 08:05 1574360    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/rt.jar
+b5334000-b5337000 rw-p 00000000 00:00 0 
+b5337000-b53db000 rw-p 00000000 00:00 0 
+b53db000-b53dd000 rw-p 00000000 00:00 0 
+b53dd000-b542e000 rw-p 00000000 00:00 0 
+b542e000-b5431000 rw-p 00000000 00:00 0 
+b5431000-b54d4000 rw-p 00000000 00:00 0 
+b54d4000-b54da000 rw-p 00000000 00:00 0 
+b54da000-b54f4000 rw-p 00000000 00:00 0 
+b54f4000-b5500000 rw-p 00000000 00:00 0 
+b5500000-b5608000 rwxp 00000000 00:00 0 
+b5608000-b75fe000 rw-p 00000000 00:00 0 
+b75fe000-b7600000 ---p 00000000 00:00 0 
+b7615000-b761c000 r--s 000fb000 08:05 1574354    /usr/lib/jvm/java-6-openjdk-common/jre/lib/resources.jar
+b761c000-b761e000 r--s 00001000 08:05 1574352    /usr/lib/jvm/java-6-openjdk-common/jre/lib/ext/dnsns.jar
+b761e000-b7621000 r--s 00031000 08:05 1574349    /usr/lib/jvm/java-6-openjdk-common/jre/lib/ext/sunjce_provider.jar
+b7621000-b7623000 r--s 0000f000 08:05 1574350    /usr/lib/jvm/java-6-openjdk-common/jre/lib/ext/pulse-java.jar
+b7623000-b7624000 r--s 00007000 08:05 1840267    /usr/share/java/java-atk-wrapper.jar
+b7624000-b7627000 r--s 00077000 08:05 1574353    /usr/lib/jvm/java-6-openjdk-common/jre/lib/ext/localedata.jar
+b7627000-b762b000 r--s 00038000 08:05 1574351    /usr/lib/jvm/java-6-openjdk-common/jre/lib/ext/sunpkcs11.jar
+b762b000-b7632000 rw-p 00000000 00:00 0 
+b7632000-b764c000 rw-p 00000000 00:00 0 
+b764c000-b7651000 rw-p 00000000 00:00 0 
+b7651000-b76cc000 rw-p 00000000 00:00 0 
+b76cc000-b76cf000 ---p 00000000 00:00 0 
+b76cf000-b7720000 rw-p 00000000 00:00 0 
+b7720000-b7721000 r--p 005e0000 08:05 1449989    /usr/lib/locale/locale-archive
+b7721000-b772e000 rw-p 00000000 00:00 0 
+b772e000-b7736000 rw-s 00000000 08:05 1179857    /tmp/hsperfdata_s/14246
+b7736000-b7737000 rw-p 00000000 00:00 0 
+b7737000-b7738000 r--p 00000000 00:00 0 
+b7738000-b773a000 rw-p 00000000 00:00 0 
+bfd78000-bfd99000 rw-p 00000000 00:00 0          [stack]
+
+VM Arguments:
+jvm_args: -Dapplication.home=/usr/lib/jvm/java-6-openjdk-i386 -Xms8m 
+java_command: com.sun.tools.javac.Main ide.java
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+USERNAME=s
+LD_LIBRARY_PATH=/usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/client:/usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386:/usr/lib/jvm/java-6-openjdk-i386/jre/../lib/i386
+SHELL=/bin/bash
+DISPLAY=:0.0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x3e4720], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x3e4720], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x3016f0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: [libjvm.so+0x3016f0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGXFSZ: [libjvm.so+0x3016f0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x3016f0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x301580], sa_mask[0]=0x00000000, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x304620], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: [libjvm.so+0x304620], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGTERM: [libjvm.so+0x304620], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGQUIT: [libjvm.so+0x304620], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+
+
+---------------  S Y S T E M  ---------------
+
+OS:LinuxMint 13 (maya)
+uname:Linux 3.2.0-23-generic #36-Ubuntu SMP Tue Apr 10 20:41:14 UTC 2012 i686
+libc:glibc 2.15 NPTL 2.15 
+rlimit: STACK 8192k, CORE 0k, NPROC 7833, NOFILE 4096, AS infinity
+load average:1.77 1.32 1.19
+
+/proc/meminfo:
+MemTotal:        1017236 kB
+MemFree:           75428 kB
+Buffers:            7360 kB
+Cached:           471808 kB
+SwapCached:        20076 kB
+Active:           450396 kB
+Inactive:         435632 kB
+Active(anon):     286916 kB
+Inactive(anon):   300236 kB
+Active(file):     163480 kB
+Inactive(file):   135396 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+HighTotal:        130824 kB
+HighFree:           1744 kB
+LowTotal:         886412 kB
+LowFree:           73684 kB
+SwapTotal:       1037308 kB
+SwapFree:         882528 kB
+Dirty:               268 kB
+Writeback:             0 kB
+AnonPages:        395272 kB
+Mapped:            90796 kB
+Shmem:            180204 kB
+Slab:              29904 kB
+SReclaimable:      14252 kB
+SUnreclaim:        15652 kB
+KernelStack:        3128 kB
+PageTables:         9760 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     1545924 kB
+Committed_AS:    2387580 kB
+VmallocTotal:     122880 kB
+VmallocUsed:       15260 kB
+VmallocChunk:      72420 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       4096 kB
+DirectMap4k:       32760 kB
+DirectMap4M:      876544 kB
+
+
+CPU:total 2 (1 cores per cpu, 2 threads per core) family 15 model 3 stepping 4, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ht
+
+Memory: 4k page, physical 1017236k(75428k free), swap 1037308k(882528k free)
+
+vm_info: OpenJDK Client VM (20.0-b12) for linux-x86 JRE (1.6.0_24-b24), built on Oct 24 2012 16:21:09 by "buildd" with gcc 4.6.3
+
+time: Wed Jan 16 21:05:20 2013
+elapsed time: 2 seconds
+

@@ -1,0 +1,1832 @@
+ 
+    Home Archives Projects Forum Tools About 
+Login [Register]
+Username: 
+Password: 
+Autologin: 
+
+Don't have an account? Register now to chat, post, use our tools, and much more.
+Latest Headlines
+» jsTIfied: TI-73, TI-76.fr, TI-81, TI-82, TI-82 Stats.fr 
+» jsTIfied Online Calculator Emulator Adds TI-83 Support 
+» TI-84 Plus C Silver Edition: Official Press Release 
+» Cemetech Contest #9 Ending Soon
+Online Users
+There are 66 users online: 3 members, 56 guests and 7 bots.
+Members: krazylegodrummer56, ruler501.
+Bots: MSN/Bing (1), Yahoo! Slurp (1), Googlebot (4), MSN/Bing (1).
+RSS & Social Media
+ Follow @cemetech
+ 'Like' Cemetech
+ News Headlines
+ Latest Posts
+SAX
+You must log in to view the SAX chat widget
+SourceCoder 2.5 :: Code Output
+« Return to Project List/Parse Another File
+File Type: TI-83/+/SE file
+Total File Size: 18973 bytes
+   
+
+ A
+Program Data Size:18897
+Type: Program
+
+Then	0
+While	19
+Repeat	0
+For(	42
+End	196
+SourceCoder 2 has detected that you have 135 too many closing tags for your number of opening tags.
+
+   
+:.AZNIQ
+:Goto 00
+:Goto CText
+:Goto CDec
+:Goto Box
+:Goto Bar
+:Goto Fade
+:Goto CMen
+:Goto NPC
+:Lbl 00
+:Fix 5
+:DiagnosticOff
+:[]→GDB0P
+:"Marcus "[00]
+:"Miles  "[00]
+:"Linette"[00]
+:"Maris  "[00]
+:"Cassidy"[00]
+:"Quentin"[00]
+:"---"→Str0N
+:"/"→Str1
+:"}"→Str1P
+:[]→GDB2
+:"HP "[00]
+:"MP "[00]
+:"HPM"[00]
+:"MPM"[00]
+:"Str"[00]
+:"Skl"[00]
+:"Spe"[00]
+:"MSt"[00]
+:"MSk"[00]
+:"Def"[00]
+:.TYPES
+:[]→GDB3
+:"Normal "[00]
+:"Warrior"[00]
+:"Archer "[00]
+:"Hassasn"[00]
+:"Holy   "[00]
+:"Undead "[00]
+:"Shadow "[00]
+:"Equip"→Str0E
+:
+:Lbl VARS
+:prgmAINC
+:E0504→{E8251}r
+:Lbl TITLE
+:EXT("prgmTITLE")
+:Lbl INIT
+:conj([DB06F50EFFED5B409D19ED5B339D3A429D477C0707E60380D306CBBCCBF4CB742007DB063CD30626403EFFBE203123CB742007DB063CD30626404623CB742007DB063CD306264079EDA02BE60F200B0C28210D7BC6205F30011410EB2318BF79EDA0E60F20B80C280A0D7BC6205F30011418ABF1D306C9],E865F,120)
+:"prgmITEMS"→Str9
+:"vT"→Str0
+:GetCalc(Str0,4416)→θ
+:Fill(θ,4416,1)
+:GetCalc("prgmTILES",Y1)
+:GetCalc("prgmMAP",Y2)
+:GetCalc("prgmOVERWORL",Y5)
+:conj(Y5,θ+2304,576)
+:GetCalc("prgmFONT",Y5)
+:GetCalc("prgmNPCCONVO",Y6)
+:GetCalc("prgmBATTLES",Y8)
+:ResP()
+:1→{oItem}
+:1→{oItem+1}
+:3→{oItem+2}
+:4→{oItem+3}
+:4→{oItem+4}
+:1→{oSkill}
+:2→{oSkill+1}
+:0→Dir
+:
+:Lbl 0
+:0→BFlag
+:LoadM()
+:DrawM()
+:Disp()
+:While 1
+:¦ If getKey(49)
+:¦ Goto Q
+:End
+:
+:If getKey(3)
+:3→Dir
+:For(4)
+:¦ Disp()
+:End
+:If getKey(3)
+:
+:Right()
+:End
+:End
+:If getKey(2)
+:2→Dir
+:For(3)
+:¦ Disp()
+:End
+:If getKey(2)
+:Left()
+:End
+:End
+:If getKey(1)
+:0→Dir
+:For(3)
+:¦ Disp()
+:End
+:If getKey(1)
+:Up()
+:End
+:End
+:If getKey(4)
+:1→Dir
+:For(3)
+:¦ Disp()
+:End
+:If getKey(4)
+:Down()
+:End
+:End
+:
+:If getKey(54)
+:DeltaList(0,1,0,‾1,‾1,0,1,0)+(Dir*2)→A
+:If NPCC(int(}+PX,int(A+1}+PY)→B
+:{+1}→r6
+:{B+2}r
+:NPC0()
+:End
+:If Asm(2A79813A2085110300)ENTC()→B
+:SaveS()
+:{B+1}r
+:NPC()
+:End
+:End
+:
+:If getKey(55)
+:SaveS()
+:Menu()
+:LoadS()
+:P()
+:End
+:If getKey(48)
+:SaveS()
+:Batt0(0,5)
+:LoadS()
+:End
+:Disp()
+:
+:End
+:
+:Lbl Q
+:Fade()
+:Fix 4
+:DelVar Str0
+:DelVar Str0X
+:ClrHome
+:Returnr
+:Lbl Store
+:LoadS()
+:.STORE INFO AT Y6+Offs+1
+:Return!If CMen(0,,2,4,"Buy"[00]"Sell"[00])+1
+:!If -1
+:Buy()
+:Else
+:Sell()
+:End
+:Goto Store
+:Lbl Buy
+:LoadS()
+:0→F
+:{Y6+Offs+1}→S
+:While 1
+:¦ Return!If +6
+:¦ If +48
+:¦ Box(20,0,S+1*7+4,64)
+:¦ K=1-(K=4)+F
+:¦ !If +1
+:¦ +1
+:End
+:min(-1,S)→F
+:CText(32,3,[24])
+:CDec(36,3,Money)
+:10→r2
+:For(E,0,S)
+:¦ GetI({E*3+Y6+Offs+1})
+:¦ L5+E20→r3
+:¦ CText(30)
+:¦ [24]→r3
+:¦ CText(76)
+:¦ {E*3+Y6+Offs+2}r→r3
+:¦ CDec(80)
+:¦ r2+7→r2
+:End
+:Text(F*7+3*256+22)
+:DrawF Str1P
+:Else
+:Delay()
+:End
+:DispGraphrr
+:EndIf getKey→K-54
+:If {F*3+Offs+Y6+2}r→P>Money
+:Goto Buy
+:End
+:1→Q
+:Lbl Buy1
+:While 1
+:¦ !If +6
+:¦ Goto Buy
+:End
+:If K
+:Box(0,,32,32)
+:CText(3,,"Quantity")
+:K=1*8-(K=4*8)+(K=3)-(K=2)+Q→Q
+:If Q>255 or (P*Q>Money)
+:Money/P→Q
+:End
+:CDec(8,10,Q)
+:
+:
+:Else
+:Delay()
+:End
+:DispGraphrr
+:End!If getKey→K-54
+:Money-P→Money
+:AddI({F*3+Offs+Y6+1})
+:Goto Buy
+:Lbl Sell
+:LoadS()
+:0→r1
+:Return!If ItemS()→A+1
+:ReturnIf CMen(0,,2,9,"Sell?"[00]"No thanks"[00])
+:IncM({L5+E37}r)
+:RemI(A)
+:Goto Sell
+:Lbl IncM
+:If Money>(r1+Money)
+:65535→Money
+:Else
+:Money+r1→Money
+:End
+:Return
+:Lbl EXT
+:GetCalc(,Y0)
+:"prgmT2"→Str0X
+:DelVar Str0X
+:GetCalc(Str0X,{Y0-2}r→A)→B
+:conj(Y0,B,A)
+:
+:Asm(DB06329181)
+:Str0X
+:Asm(E7EF7C4E)
+:GetCalc(Str0)→θ
+:Return
+:
+:Lbl Delay
+:Pause 7
+:For(Gray)
+:End
+:Return
+:Lbl AddP
+:→r3→{length(oPlaL+1)+1→r6+oPlaL}
+:LoadP(r6)
+:r3→PType
+:Heal()
+:SaveP(r6)
+:Return
+:Lbl LoadP
+:.Loadplayer
+:PrepP()
+:conj(r1*42+oPla1,L4+10,42)
+:If r1
+:conj({+oPlaL}→PlID*8+GDB0P-8,L4,9)
+:Else
+:conj(L2,L4,10)
+:End
+:Return
+:Lbl SaveP
+:conj(L4+10,r1*42+oPla1,42)
+:Lbl ResP
+:.Reset player
+:conj(MPla*42+oPla1,L4+10,42)
+:{MPla+oPlaL}→PlID
+:If MPla
+:conj(PlID*8+GDB0P-8,L4,9)
+:Else
+:conj(L2,L4,10)
+:End
+:Return
+:
+:Lbl PrepP
+:conj(L4+10,MPla*42+oPla1,42)
+:Return
+:Lbl CMen
+:.X,Y,NUM OPTIONS,length(ENTRY),PTR DATA
+:0→F
+:41→K
+:r1→A
+:r2→B
+:r3→C*7+4→r6
+:r4→D*4+10→r3
+:r6→r4
+:Box()
+:B+3→r2
+:r5→E→r3
+:For(C)
+:¦ A+8→r1
+:¦ CText()
+:¦ r2+7→r2
+:¦ r3++
+:End
+:Text(B+2*256+A+4→A+4)
+:While 1
+:¦ !If +6
+:¦ ReturnEFFFF
+:End
+:If K
+:=1-(K=4)+F
+:!If +1
+:+1
+:End
+:min(-1,C-1)→F
+:{E86D7}-4→{E86D7}
+:DrawF "   "
+:Text(F*7*256+A)
+:DrawF Str1P
+:Else
+:Delay()
+:End
+:DispGraphrr
+:End!If getKey→K-54
+:ReturnF
+:
+:Lbl TDel
+:.Terrain delay
+:Return!If K
+:For(K)
+:¦ Delay()
+:¦ DispGraphrr
+:End
+:Return
+:Lbl ChkT
+:!If {r2}→A-32<16
+:A>15+(A>24)*64→K
+:Else
+:A>35+(A>41)*64→K
+:End
+:Return
+:Lbl ChkB
+:.TILE VALUE ALREADY IN A FROM WARP ROUTINE
+:If A-32<16
+:!If rand^16
+:SaveS()
+:Batt0({rand^3+L5+E1B},{L5+E1A})
+:LoadS()
+:End
+:End
+:Return
+:Lbl PrepM
+:GetCalc("prgmMOVES",Y9)
+:Return
+:Lbl GetM
+:.GETMOVE
+:conj(r1-1*E18+Y9,L5+E20,E18)
+:Return
+:Lbl PrepI
+:GetCalc("prgmITEMS",Y9)
+:Return
+:Lbl UseI
+:.r1Consume/Equ
+:.AItem slot
+:!If r1-2
+:min({L5+E32}r+HP,HPM)→HP
+:min({L5+E35}r+MP,MPM)→MP
+:RemI(A)
+:Else!If -1
+:L5+E31→F
+:For(2)
+:¦ If {F}
+:¦ {{F}-3*2+oStr→B}r+{F+1}r→{B}r
+:¦ F+3→F
+:End
+:End
+:RemI(A)
+:End
+:Return
+:Lbl AddI
+:.ADD ITEM ID r1
+:.ASMIFY
+:oItem→E
+:While 1
+:¦ !If {E}-r1
+:¦ {E+1}++
+:¦ Return
+:End
+:E+2→E
+:End!If {E}
+:r1→{E}
+:1→{E+1}
+:Return
+:Lbl RemI
+:{r1*2+oItem→r2+1}--
+:!If {r2+1}
+:0→{r2}
+:conj(r2+2,r2,‾r1*2+E5F)
+:End
+:Return
+:Lbl GetI
+:conj(-1*E19+Y9,L5+E20,E19)
+:Return
+:Lbl Batt0
+:.Load Ene
+:.r1*288+13056
+:r2→ELvl
+:conj(r1*288+13056+256+Y8,L1+E30,288)
+:GetCalc("prgmENEMYMET",Y9)
+:r1*23→A
+:0→r2
+:ELvl→r3
+:For(E,0,7)
+:¦ Stat({Y9+A+E+E0B})→{E*2+oEHPM}r
+:End
+:EHPM→EHP
+:EMPM→EMP
+:conj(Y9+A,L1,10)
+:{Y9+A+E0A}→EType
+:conj(Y9+A+E13,oESkls,4)
+:.LoadPlayer
+:
+:EXT("prgmR")
+:PrepI()
+:
+:If {oEquI}→r1
+:GetI()
+:{L5+E34}→WType
+:{L5+E35}r→WPow
+:Else
+:0→WType
+:16→WPow
+:End
+:
+:.ADD ITEM BONUS
+:For(E,oEquI,oEquI+5)
+:¦ If {E}→r1
+:¦ GetI()
+:¦ If {L5+E31}
+:¦ {-1*2+oHP→A}r+{L5+E32}r→{A}r
+:End
+:If E-oEquI
+:If {L5+E34}
+:{-1*2+oHP→A}r+{L5+E35}r→{A}r
+:End
+:End
+:End
+:End
+:WType*768→BPtr
+:If PlID
+:-1*1024+6400→BPtr
+:End
+:!If Batt()-2
+:Return
+:Else!If +1
+:If BFlag
+:0→BFlag
+:Return
+:End
+:Goto Q
+:Else
+:LoadS()
+:Box(16,,64,/2)
+:CText(32,20,"Victory!")
+:.ASMIFY
+:0→A
+:oEHP→E
+:For(8)
+:¦ A+{E}r→A
+:¦ E+2→E
+:End
+:A/8→A
+:XP-A→XP
+:CText(20,34,[2400])
+:"gained:"→Str0G
+:Str0G→r3
+:CText()
+:rand^(A/2)+A-5→r3
+:CDec()
+:IncM(r3)
+:CText(20,27,"XP "
+:Str0G→r3
+:CText()
+:A→r3
+:CDec()
+:PK2()
+:While XP<<0
+:¦ .LVLUP
+:¦ Lvl++
+:¦ 2+Lvl*2+XP→XP
+:¦ Heal()
+:¦ Stat1()
+:¦ Box(0,,46,11)
+:¦ CText(4,-1,"Level up!")
+:¦ PK2()
+:End
+:End
+:PStat()
+:0→BFlag
+:Return
+:
+:Lbl Batt
+:DeltaList(∟Ener,∟Plar,∟Ener)→GDB0B
+:While 1
+:¦ rand^(Spe+ESpe)>Spe*2+GDB0B→Order
+:¦ For(2)
+:¦ ¦ If ({Order}r)()
+:¦ ¦ Return2
+:¦ End
+:¦ BattS()
+:¦ DispGraphrr
+:¦ !If HP
+:¦ P2()
+:¦ Return1
+:End
+:!If EHP
+:P2()
+:Return0
+:End
+:Order+2→Order
+:End
+:
+:End
+:Lbl Ene
+:BattS()
+:If rand^2
+:Asm(AF)
+:Eras2(360)
+:If PlID
+:BPtr+768
+:Else
+:6400-256
+:End
+:→r3
+:Draw3(0,30)
+:65→E
+:For(4)
+:¦ Asm(AF)
+:¦ Eras2(8)
+:¦ Draw2(E--,2,L1+E30)
+:¦ DispGraphrr
+:End
+:Dmg(EStr,16,ESkl,Def,oHP,EType*7+PType)
+:Else
+:Move({rand^4+oESkls},1)
+:End
+:P2()
+:Return0
+:
+:Lbl Pla
+:BattS()
+:0→A→B
+:
+:While 1
+:¦ If K
+:¦ Box(38,47,58,17)
+:¦ K=1*2-(K=4*2)+(K=3)-(K=2)+A→A
+:¦ If <<0
+:¦ -1→A
+:End
+:min(A,3)→A
+:Text(A/2*256*6+(A^2*30)+12842-256)
+:DrawF "}"
+:CText(46,50,"Engage")
+:CText(46,56,"Party")
+:CText(76,50,"Item")
+:CText(76,56,"Run")
+:Else
+:Delay()
+:End
+:DispGraphrr
+:End!If getKey→K-54
+:
+:!If A
+:
+:!If CMen(38,46,2,10,"Attack"[00]"Skill"[00])→B+1
+:Goto Pla
+:End
+:
+:!If B
+:0→F
+:For(3)
+:¦ P2()
+:¦ Asm(AF)
+:¦ Eras2(360)
+:¦ Draw3(0,30,F*256+BPtr
+:¦ F++
+:¦ Asm(AF)
+:End
+:Eras2(8)
+:Draw2(65,2,L1+144+E30)
+:P2()
+:Dmg(Str,WPow,Skl,EDef,oEHP,WType*7+EType)
+:
+:Else!If -1
+:.skill
+:PrepM()
+:0→A→B
+:3→K
+:
+:While 1
+:¦ !If +6
+:¦ Goto Pla
+:End
+:If K
+:Box(38,46,58,18)
+:!If K-4
+:!If A
+:If B
+:B--
+:End
+:Else
+:0→A
+:End
+:End
+:
+:!If K-1
+:If A
+:If B-3
+:B++
+:End
+:Else
+:1→A
+:End
+:End
+:Text(A*7+48*256+41)
+:DrawF Str1P
+:
+:B+oSkill→E
+:48→r2
+:For(2)
+:¦ !If {E}→r1
+:¦ Str0N→r3
+:¦ Else
+:¦ GetM()
+:¦ L5+E20→r3
+:End
+:CText(46)
+:r2+7→r2
+:E++
+:End
+:
+:Else
+:Delay()
+:End
+:DispGraphrr
+:End!If getKey→K-54
+:{B+A+oSkill}→r1
+:!If r1
+:Goto Pla
+:End
+:
+:Move(r1,0)
+:End
+:Else!If -1
+:ItemB()
+:Else!If -1
+:!If Part(1)
+:Goto Pla
+:End
+:Else
+:.RUN
+:Fade()
+:PStat()
+:Return1
+:End
+:Return0
+:
+:Lbl BattS
+:ClrDrawrr
+:CText(3,,L1)
+:Bar(3,10,EHP,EHPM)
+:Bar(50,40,HP,HPM)
+:Bar(50,34,MP,MPM)
+:CText(48,32,GDB2+4)
+:CText(48,40,GDB2)
+:Draw3(0,30,BPtr)
+:Draw2(65,2,L1+E30)
+:CDec(3,20,EStr)
+:CDec(13,20,ESkl)
+:Return
+:Lbl Move
+:Text(0,,r1►Dec)
+:DispGraph
+:Pause 1000
+:.r1Move
+:.r2-0=platk
+:.1=eneatk
+:DeltaList(L4r,L1r,38*12+1r,60,0)→GDB99
+:DeltaList(L1r,L4r,56r,0,30)
+:{r2*8+GDB99→W}r→Z
+:{W+2}r→Y
+:r1→I
+:GetM()
+:DispGraph
+:Pause 5000
+:If {L5+E32}
+:Dmg({Z+E18}r,{L5+E32},{Z+E20}r,{Y+E22}r,Y+E10,{L5+E30}*7+{Y+E0E}r)
+:End
+:L5+E33→G
+:For(2)
+:¦ If {G}
+:¦ {G}<3*4*96+12288+256→F
+:¦ For(4)
+:¦ ¦ {W+4}r→r2
+:¦ ¦ Bk16(r2)
+:¦ ¦ conj(F+Y8,L5+E20,96)
+:¦ ¦ Mask(0)
+:¦ ¦ P2()
+:¦ ¦ Cl16(r2)
+:¦ ¦ F+96→F
+:¦ End
+:¦ GetM(I)
+:¦ {G+1}*{{G}*2+Z+E0E→A}r/8→{A}r
+:End
+:G+2→G
+:End
+:min(HP,HPM)→HP
+:min(MP,MPM)→MP
+:min(EHP,EHPM)→EHP
+:min(EMP,EMPM)→EMP
+:Return
+:Lbl Dmg
+:.r1-str
+:.r2-POW
+:.r3-SKL
+:.r4-ENEMY DEF
+:.r5-HPtoaffect
+:.r6-(ATTACKTYPE*7+DEFTYPE)
+:
+:r1*r2/r4→M
+:256-r3*M//256→R
+:rand^R+M-R→D
+:{[02020202020202 02020402040101 02040204040100 02040201020202 02010201020404 02020202020202 02020204010202]+r6}→B*D/2→D
+:{r5}r-D→{r5}r
+:If {r5}r<<0
+:-1→{r5}r
+:End
+:Return
+:
+:Lbl Heal
+:PStat()
+:HPM→HP
+:MPM→MP
+:Return
+:Lbl PStat
+:[08080808080808080C080C08090A08080B090A0C0B07080809070D0D0D0507090C0B050509090C0C0E0A0E08060C0C06050A0C0C0F040D0E]→GDB0S
+:PType*8+GDB0S→A
+:Lvl→r3
+:For(E,0,1)
+:¦ Stat({A+E},0)→{E*2+oHPM}r
+:End
+:For(E,2,7)
+:¦ Stat({A+E},{E+L4+E32})→{E*2+oHPM}r
+:End
+:min(HP,HPM)→HP
+:min(MP,MPM)→MP
+:Return
+:Lbl Stat
+:.r1-BASE
+:.r2-TRAINVAL
+:.r3-Lv
+:r1*16+r2*r3/100+5
+:Return
+:Lbl Bar
+:ref(r1,r2,34,3)r
+:r3*32/r4→L
+:rref(r1+L+1,r2+1,32-L,1)r
+:
+:r2-1→r2
+:r1+10→r1
+:CDec()
+:Str1→r3
+:CText()
+:r4→r3
+:CDec()
+:Return
+:
+:Lbl PKey
+:While 1
+:¦ Disp()
+:EndIf getKey
+:Lbl P
+:For(13)
+:¦ Disp()
+:End
+:Return
+:Lbl P2
+:For(17)
+:¦ DispGraphrr
+:¦ Delay()
+:End
+:Return
+:Lbl PK2
+:While 1
+:¦ DispGraphrr
+:¦ Delay()
+:EndIf getKey
+:Return
+:Lbl NPC0
+:→Offs
+:.r6-SPRITEID
+:.r2-Y
+:.r1-X
+:SaveS()
+:E0504→{E8251}r
+:conj({r2*48+r1+θ→A}*48+Y1,L1,48)
+:conj({A-48}*48+Y1,L1+48,48)
+:r1→r4
+:r2→r5
+:
+:{DeltaList(288+144+6r,144+6r,293-1r,294+1r)+(Dir*2)}r→r1→A
+:Dir<2→r2→B
+:Eras1()
+:Draw1(r4-PX+4*12,r5-PY+2*12-8,L1+48)
+:r2+12→r2
+:L1→r3
+:Draw1()
+:
+:conj(r6*4+{DeltaList(1,0,2,3)+Dir}*96+Y1+19200,L5+E20,96)
+:A→r2
+:Mask(B=0)
+:0→DFlag
+:Offs
+:Lbl NPC
+:{*2+Y6}r-1→Offs
+:Dir*96*3
+:DChar()
+:ResNPC()
+:While {Offs+++Y6}→Char
+:¦ !If -1
+:¦ .1-NAME
+:¦ CText(CurX,CurY,L4)
+:¦ Offs+length(L4)-1→Offs
+:¦ Else!If -1
+:¦ .2-CHECKFLAG
+:¦ Offs+2→Offs
+:¦ {Offs+Y6-1}r→A/8
+:¦ {+oFlags}e(A^8)
+:¦ JPNZ()
+:¦ Else!If -1
+:¦ .3-CHK ITEM
+:¦ Offs++
+:¦ {+Y6+1}→A
+:¦ oItem-2→E
+:¦ 0→r2
+:¦ For(48)
+:¦ ¦ !If {E+2→E}-A
+:¦ ¦ +1→r2
+:¦ End
+:End
+:r2
+:JPNZ()
+:Else!If -1
+:.4-SETFLAG
+:{Y6+Offs+1}r→A/8→B
+:A^8→A
+:Offs+2→Offs
+:Else!If -1
+:.5-RESFLAG
+:Offs+2→Offs
+:Else!If -1
+:.6-NEWLINE
+:3→CurX
+:56→CurY
+:Else!If -1
+:.7-PAUSE+NEWBOX
+:PK2()
+:ResNPC()
+:End
+:!If Char-8
+:.8-getitem
+:AddI({Y6+Offs+1})
+:Offs++
+:Else!If -1
+:Batt0({Y6+Offs+1},{Y6+Offs+2})
+:Offs+2→Offs
+:Else!If -1
+:.10-CHANGE TILE
+:{Y6+Offs+2}→{{Y6+Offs+4}*48+{Y6+Offs+3}+θ}
+:DrawM()
+:ResNPC()
+:Offs+4→Offs
+:Else!If -1
+:.11-STORE
+:.ARGS
+:.1-num items
+:.item(B),item price(W)
+:{Y6+Offs+1}→S
+:Store()
+:Else!If -1
+:.12-YES/NO
+:CMen(70,30,2,4,"Yes"[00]"No"[00])
+:!If +1
+:+1
+:End
+:-1
+:JPNZ()
+:Else!If -1
+:.13-JUMP
+:{Y6+Offs+1}r-1→Offs
+:Else!If -1
+:.14-WARP
+:{Y6+Offs+1}→OverX
+:{Y6+Offs+2}→OverY
+:{Y6+Offs+3}+16→PX
+:{Y6+Offs+4}+16→PY
+:Fade()
+:LoadM()
+:DrawM()
+:SaveS()
+:Offs+4→Offs
+:Else!If -1
+:.15-GETMONEY
+:IncM({Y6+Offs+1}r)
+:Offs++
+:Else!If -1
+:.16-HEAL
+:Heal()
+:Else!If -1
+:.17-SPECBATT
+:1→BFlag
+:Batt0({Y6+Offs+1},{Y6+Offs+2})
+:Offs+2→Offs
+:Else!If -1
+:.cutsc
+:GetCalc("prgmIMGS",Y0)
+:conj({Y6+Offs+1}*1536→A+Y0,L6,768)
+:conj(A+Y0+768,L3,768)
+:Offs++
+:ElseIf Char>31
+:Offs-1→E
+:CurX→F
+:While {E+++Y6}>32
+:¦ F+4→F
+:End
+:
+:If F>96
+:3→CurX
+:If CurY-56
+:56→CurY
+:Else
+:PK2()
+:Box(0,46,+2*2,18)
+:49→CurY
+:End
+:End
+:CChar(CurX,CurY,Char-32)
+:r1→CurX
+:Delay()
+:DispGraphrr
+:End
+:End
+:PK2()
+:LoadS()
+:Return
+:
+:Lbl JPNZ
+:If 
+:{Y6+Offs}r-1
+:Else
+:Offs+2
+:End
+:→Offs
+:Return
+:Lbl ResNPC
+:Box(0,46,+2*2,18)
+:49→CurY
+:3→CurX
+:Return
+:Lbl CText
+:.E0504→{E8251}r
+:Return!If length(r3)
+:For()
+:¦ {r3}-32
+:¦ CChar()
+:¦ r3++
+:End
+:Return
+:Lbl CDec
+:.E0504→{E8251}r
+:!If r3
+:16
+:CChar()
+:Return
+:End
+:r3/10000→{E8452}
+:r3/10/10/10^10→{E8453}
+:r3/10/10^10→{E8454}
+:r3/10^10→{E8455}
+:r3^10→{E8456}
+:0→{E8457}
+:E8452→r3
+:For(5)
+:¦ If {r3}
+:¦ !If {E8457}
+:¦ 1→{E8457}
+:End
+:End
+:If {E8457}
+:{r3}+16
+:CChar()
+:End
+:r3++
+:End
+:Return
+:Lbl CChar
+:conj(*5+Y5,E8253,5)
+:Tangent(r1,r2,E8251)
+:Tangent(r1,r2,E8251)r
+:r1+4→r1
+:Return
+:Lbl Box
+:ref(r1,r2,r3,r4)
+:rref(r1+1,r2+1,r3-2,r4-2)
+:ref(r1,r2,r3,r4)r
+:rref(r1+2,r2+2,r3-4,r4-4)r
+:Return
+:Lbl Stat0
+:ClrDrawrr
+:conj(PlID*1152+12288+Y1,L5+E20,96)
+:Mask(1,50)
+:CText(12,22,PType*8+GDB3)
+:CText(16,*2,"XP to level up:"
+:XP→r3
+:CDec()
+:Lbl Stat1
+:Box(1,40,94,24)
+:GDB2+16→E
+:44→r2
+:oStr→F
+:For(3)
+:¦ E→r3
+:¦ CText(4)
+:¦ {F}r→r3
+:¦ r1++
+:¦ CDec()
+:¦ E+4→E
+:¦ F+2→F
+:¦ r2+6→r2
+:End
+:44→r2
+:For(3)
+:¦ E→r3
+:¦ CText(42)
+:¦ {F}r→r3
+:¦ r1++
+:¦ CDec()
+:¦ E+4→E
+:¦ F+2→F
+:¦ r2+6→r2
+:End
+:Lbl Stat2
+:Box(50,0,46,30)
+:CText(53,2,L4)
+:CText(53,9,"L:"
+:Lvl→r3
+:CDec()
+:[2400]→r3
+:CText(r1+2)
+:Money→r3
+:r1++
+:CDec()
+:Bar(55,16,HP,HPM)
+:Bar(55,23,MP,MPM)
+:Return
+:Lbl Menu
+:Stat2()
+:length(L5)*4→A
+:Dir*96*3
+:DChar()
+:Box(‾A+80/2,54,A+16,10)
+:CText(r1+8,r2+2,L5)
+:0→MFlag
+:
+:CMen(0,,5,6,"Item"[00]"Party"[00]"Equip"[00]"Save"[00]"Quit"[00])→B
+:!If B
+:ItemM()
+:Else!If -1
+:Part(0)
+:Else!If -1
+:0→B
+:EquS()
+:Else!If -1
+:Fade()
+:ClrDrawrr
+:CText(30,,"Saving...")
+:DispGraphrr
+:PrepP()
+:"vAshSv"→Str0SX
+:UnArchiveStr0SX
+:GetCalc(Str0SX)→A
+:conj(L2,Save*400+A,400)
+:ArchiveStr0SX
+:0→Dir
+:E0504→{E8251}r
+:LoadP(MPla)
+:Else!If -1
+:Goto Q
+:Else
+:Return
+:End
+:LoadS()
+:Goto Menu
+:Lbl Part
+:→Y
+:While 1
+:¦ Party()→Z
+:¦ Return!If Z+1
+:¦ CMen(54,0,2,7,"Switch"[00]"Stats"[00])
+:¦ !If →B+1
+:¦ LoadS()
+:¦ Goto Part
+:End
+:LoadP(Z)
+:!If B
+:Z→MPla
+:{+oPlaL}→PlID
+:Return1
+:Else
+:Stat0()
+:PK2()
+:ResP()
+:End
+:!If Y
+:LoadS()
+:Else
+:BattS()
+:End
+:End
+:Lbl Party
+:.Select party + select char
+:41→K
+:0→A
+:While 1
+:¦ !If +6
+:¦ ReturnEFFFF
+:End
+:If K
+:=1-(K=4)+A
+:!If +1
+:+1
+:End
+:min(-1,length(oPlaL+1))→A
+:Text(*8+2*256+4)
+:Box(0,,50,38)
+:DrawF Str1P
+:CText(8,3,L2)
+:oPlaL+1→E
+:11→r2
+:For(3)
+:¦ If {E}
+:¦ -1*8+GDB0P→r3
+:¦ Else
+:¦ Str0N→r3
+:End
+:CText(8)
+:r2+8→r2
+:E++
+:End
+:
+:LoadP(A)
+:Stat2()
+:ResP()
+:
+:Else
+:Delay()
+:End
+:DispGraphrr
+:End!If getKey→K-54
+:Return!If A
+:If {A+oPlaL}
+:ReturnA
+:End
+:Goto Party
+:Lbl EquS
+:.EQUIPSCREEN
+:LoadS()
+:PrepI()
+:3→K
+:While 1
+:¦ Return!If +6
+:¦ If K
+:¦ =1-(K=4)+B
+:¦ !If +1
+:¦ +1
+:End
+:min(-1,5)→B
+:Text(*7+3*256+36)
+:Box(32,0,66,48)
+:DrawF Str1P
+:oEquI→E
+:4→r2
+:For(6)
+:¦ If {E}→r1
+:¦ GetI()
+:¦ L5+E20→r3
+:¦ Else
+:¦ Str0N→r3
+:End
+:CText(42)
+:r2+7→r2
+:E++
+:End
+:InfI({B+oEquI})
+:Else
+:Delay()
+:End
+:DispGraphrr
+:End!If getKey→K-54
+:
+:!If {B+oEquI}
+:Goto EquS
+:End
+:
+:!If CMen(0,,+1,8,"Unequip?"[00])+1
+:Goto EquS
+:End
+:AddI({B+oEquI→B})
+:0→{B}
+:Goto EquS
+:Lbl ItemM
+:.MAIN MENU ITEM
+:LoadS()
+:0→A
+:Lbl I2
+:0→r1
+:Return!If ItemS()→A+1
+:.Item already loaded
+:Return!If {L5+E30}→E
+:If E>2
+:("Equip"[00]"Drop"[00])→r5
+:Else
+:("Use"[00]"Drop"[00])→r5
+:End
+:CMen(40,0,2,5)
+:!If +1
+:Goto ItemM
+:Else!If -1
+:.EQU/USE
+:!If E-1
+:.FUNC
+:ElseIf <3
+:UseI(E)
+:Else
+:{{L5+E30}+oEquI-4→r2}→D
+:{I*2+oItem}→{r2}
+:RemI(I)
+:AddI(D)
+:End
+:Else!If -1
+:.DROP
+:RemI(A)
+:End
+:Goto I2
+:Lbl ItemB
+:BattS()
+:0→A
+:Lbl I3
+:A→r1
+:Return!If ItemS()→A+1
+:
+:If {L5+E30}→E-2>2
+:Goto I3
+:End
+:!If CMen(40,0,1,3,"Use"[00])+1
+:Goto I3
+:End
+:UseI(E)
+:Goto I3
+:Lbl ItemS
+:.SELECT ITEMS
+:If r1>5
+:r1/6*6→B
+:r1^6→A
+:Else
+:r1→A
+:0→B
+:End
+:PrepI()
+:41→K
+:length(oItem)→L
+:While 1
+:¦ !If +6
+:¦ Return‾1
+:End
+:If +48
+:Box(30,0,66,40)
+:3→r2
+:B*2+oItem→F
+:For(E,0,5)
+:¦ If {F}→r1
+:¦ GetI()
+:¦ L5+E20→r3
+:¦ CText(40)
+:¦ Text(r2-1*256+84)
+:¦ DrawF "x"
+:¦ DrawF {F+1}►Dec
+:¦ Else
+:¦ Str0N→r3
+:¦ CText(40)
+:End
+:r2+7→r2
+:F+2→F
+:End
+:
+:!If K-1
+:A++
+:!If -5
+:4→A
+:If A+E≤L
+:B++
+:End
+:End
+:End
+:!If K-4
+:A--
+:!If +1
+:→A
+:B--
+:!If +1
+:→B
+:End
+:End
+:End
+:
+:Text(A*7+2*256+34)
+:DrawF Str1P
+:
+:InfI({A+B*2+oItem})
+:Else
+:Delay()
+:End
+:
+:DispGraphrr
+:End!If getKey→K-54
+:A+B+1
+:Return
+:
+:Lbl InfI
+:r1→r6
+:Box(0,32,40,32)
+:Return!If r6→r1
+:GetI()
+:[]→GDB1
+:"------"[00]
+:"Usable"[00]
+:"Usable"[00]
+:"Boost "[00]
+:"Weapon"[00]
+:"Shield"[00]
+:"Armor "[00]
+:"Helmet"[00]
+:"Amulet"[00]
+:"Boots "[00]
+:CText(4,35,{L5+E30}*7+GDB1)
+:If {L5+E30}→E>1
+:CText(4,42,{L5+E31}-1*4+GDB2)
+:"+"→r3
+:CText()
+:{L5+E32}r→r3
+:CDec()
+:If {L5+E34}
+:If E-4
+:CText(4,48,{L5+E34}-1*4+GDB2)
+:"+"→r3
+:CText()
+:Else
+:CText(4,48,"Pow")
+:End
+:{L5+E35}r→r3
+:CDec()
+:End
+:End
+:CText(4,56,"Resale: ")
+:{L5+E37}r→r3
+:CDec()
+:Return 
+:Lbl SaveS
+:conj(L6,θ+2880,768)
+:conj(L3,θ+2880+768,768)
+:Return
+:Lbl LoadS
+:conj(θ+2880,L6,768)
+:conj(θ+2880+768,L3,768)
+:Return
+:Lbl Fade
+:Fill(L6,768,EFF)
+:Fill(L3,768,EFF)
+:DispGraphrr
+:Pause 400
+:Return
+:Lbl Warp
+:.WARP CHECK
+:Return!If {PY*48+PX+θ}→A-48<24
+:Pwrp→E
+:For({L5+E19})
+:¦ !If PX-{E}-16
+:¦ !If PY-{E+1}-16
+:¦ {E+2}→OverX
+:¦ {E+3}→OverY
+:¦ {E+4}+16→PX
+:¦ {E+5}+16→PY
+:¦ Fade()
+:¦ LoadM()
+:¦ DrawM()
+:¦ Return
+:End
+:End
+:E+6→E
+:End
+:Return
+:Lbl MCop2
+:‾24→E
+:For(8)
+:¦ conj({r1+1→r1}*48→F+Y1,E+24→E+L1,24)
+:¦ conj(Y1+F+24,E+L1+192,24)
+:End
+:Return
+:Lbl MCopy
+:‾24→E
+:For(6)
+:¦ conj({r1+48→r1}*48→F+Y1,E+24→E+L1,24)
+:¦ conj(Y1+F+24,E+L1+144,24)
+:End
+:Return
+:Lbl NPCC
+:Asm(2100803A1F85110400)
+:Lbl ENTC
+:.entity check
+:Asm(47AFB82004210000C93A319D4F7E91C610200C233A339D4F7E91C6102001C91910E7210000C9)
+:Return
+:Lbl NPCX
+:
+:E8000→E
+:If {L5+E17}
+:For({L5+E17})
+:¦ !If {E}-PX-r3+16
+:¦ If abs({E+1}-PY+16)<3
+:¦ conj({E+2}*96*4+Y1+19200,L5+E20,96)
+:¦ {E+1}-PY+18*12*12+r4→r2
+:¦ Mask()
+:End
+:End
+:E+5→E
+:End
+:End
+:
+:Return
+:Lbl NPCY
+:E8000→E
+:If {L5+E17}
+:For({L5+E17})
+:¦ If {E}-PX+16+4<8
+:¦ !If {E+1}-PY-r3+16
+:¦ conj({E+2}*96*4+Y1+19200,L5+E20,96)
+:¦ {E}-PX+20→r2^2→r1
+:¦ r2/2*3+r1+r4→r2
+:¦ Mask()
+:End
+:End
+:E+5→E
+:End
+:End
+:
+:Return
+:Lbl Right
+:ReturnIf NPCC(PX+1,PY)
+:ReturnIf {PY*48+PX+θ→r2+1}>71
+:ChkT()
+:MCopy(r2-188)
+:For(E,0,11)
+:¦ Delay()
+:¦ Anim(E/4*96+864)
+:¦ MoveL(L6+767,L1+143)
+:¦ MoveL(L3+767,r2+144)
+:End
+:PX++
+:!If -32
+:16→PX
+:OverX++
+:LoadM()
+:Goto Right
+:End
+:NPCX(1,,3,10)
+:Warp()
+:ChkB()
+:Return!If getKey(3)
+:Goto Right
+:
+:Lbl Left
+:ReturnIf NPCC(PX-1,PY)
+:ReturnIf {PY*48+PX+θ→r2-1}>71
+:ChkT()
+:MCopy(r2-197)
+:L1Asm(AF0648ED6723ED6723ED6723ED672310F2)
+:For(E,0,11)
+:¦ Delay()
+:¦ Anim(E/4*96+576)
+:¦ MoveR(L6,L1+16)
+:¦ MoveR(L3,r2+144)
+:End
+:PX--
+:!If -16
+:32→PX
+:OverX--
+:LoadM()
+:Goto Left
+:End
+:NPCX(0,,‾4,0)
+:Warp()
+:ChkB()
+:Return!If getKey(2)
+:Goto Left
+:
+:Lbl Up
+:ReturnIf NPCC(PX,PY+1)
+:ReturnIf {PY+1*48+PX+θ→r2}>71
+:ChkT()
+:MCop2(r2+91)
+:For(E,0,11)
+:¦ Delay()
+:¦ Anim(E/4*96)
+:¦ Vertical -
+:¦ Vertical -r
+:¦ MoveV(E*2+L1,L6+756)
+:¦ MoveV(r1+192,L3+756)
+:End
+:PY++
+:!If -32
+:16→PY
+:OverY++
+:LoadM()
+:End
+:NPCY(,,2,576)
+:Warp()
+:ChkB()
+:Return!If getKey(1)
+:Goto Up
+:Lbl Down
+:ReturnIf NPCC(PX,PY-1)
+:ReturnIf {PY-1*48+PX+θ→r2}>71
+:ChkT()
+:MCop2(r2-101→r6)
+:8
+:While -1→E+1
+:¦ Delay()
+:¦ Anim(12-E/4*96+288)
+:¦ Vertical +
+:¦ Vertical +r
+:¦ MoveV(E*2+L1,L6)
+:¦ MoveV(r1+192,L3)
+:¦ E
+:End
+:MCop2(r6-48)
+:12
+:While -1→E-7
+:¦ Delay()
+:¦ Anim(12-E/4*96+288)
+:¦ Vertical +
+:¦ Vertical +r
+:¦ MoveV(E*2+L1,L6)
+:¦ MoveV(r1+192,L3)
+:¦ E
+:End
+:PY--
+:!If -15
+:31→PY
+:OverY--
+:LoadM()
+:End
+:NPCY(,,‾2,0)
+:Warp()
+:ChkB()
+:Return!If getKey(4)
+:Goto Down
+:Lbl MoveV
+:Asm(EB)
+:r1
+:Asm(01FF04EDA0)
+:Asm(7E12D511170019D1)
+:Asm(AFED6723ED672B1A)
+:Asm(B6122313EDA0D511)
+:Asm(160019D110E0)
+:Return
+:Lbl MoveR
+:Asm(EB)
+:r1
+:Asm(0640)
+:Asm(EBCB1E23CB1E23EB)
+:Asm(CB1E23CB1E23CB1E23CB1E23CB1E23CB1E23)
+:Asm(CB1E23CB1E23CB1E23CB1E23CB1E23CB1E23)
+:Asm(10D2)
+:Return
+:Lbl MoveL
+:Asm(EB)
+:r1
+:Asm(0640)
+:Asm(EBCB162BCB162BEB)
+:Asm(CB162BCB162BCB162BCB162BCB162BCB162B)
+:Asm(CB162BCB162BCB162BCB162BCB162BCB162B)
+:Asm(10D2)
+:
+:Return
+:Lbl LoadM
+:OverY*24+OverX+θ+2304→r6
+:.LOAD WARPS,NPCs,ETC
+:conj({}-1*32+Y2,L5,32)
+:{L5+E1E}r→A
+:If {L5+E17}*5→B
+:conj(Y2+A,E8000,B)
+:End
+:E8000+B→Ptrg
+:A+B→A
+:If {L5+E18}*4→B
+:conj(A+Y2,Ptrg,B)
+:End
+:Ptrg+B→Pwrp
+:A+B→A
+:If {L5+E19}*6→B
+:conj(A+Y2,Pwrp,B)
+:
+:End
+:!If OverY
+:Fill(θ,768,72)
+:Else
+:!If OverX
+:
+:FillM(θ)
+:Else
+:DeCoM(r6-25,θ)
+:End
+:DeCoM(r6-24,θ+16)
+:!If OverX-23
+:FillM(θ+32)
+:Else
+:DeCoM(r6-23,θ+32)
+:End
+:End
+:
+:!If OverX
+:FillM(θ+768)
+:Else
+:DeCoM(r6-1,θ+768)
+:End
+:DeCoM(r6,θ+768+16)
+:!If OverX-23
+:FillM(θ+768+32)
+:Else
+:DeCoM(r6+1,θ+768+32)
+:End
+:
+:!If OverY-23
+:Fill(θ+1536,768,72)
+:Else
+:!If OverX
+:FillM(θ+1536)
+:Else
+:DeCoM(r6+23,θ+1536)
+:End
+:DeCoM(r6+24,θ+1536+16)
+:!If OverX-23
+:FillM(θ+1536+32)
+:Else
+:DeCoM(r6+25,θ+1536+32)
+:End
+:End
+:Return
+:Lbl DeCoM
+:!If {r1}
+:r2→r1
+:Goto FillM
+:End
+:.DECOMPRESSMAP
+:.r1MAP ID IN Y2
+:.r2ADDR TO DECOMP TO
+:.DEFAULT ADD 48TO r2 WHEN ROW FUL
+:FnOff 
+:{{r1}-1*32+Y2+E15}r
+:Asm(C35F86)
+:.JP 865F
+:Return
+:Lbl FillM
+:Asm(3E480E101120000610772310FC190D20F6)
+:Return
+:Lbl DrawM
+:ClrDrawrr
+:.DRAW MAP θ=MAPFILE PTR
+:‾8→T
+:PY-3*48+θ+PX-4→F
+:For(B,0,5)
+:¦ For(A,0,8)
+:¦ ¦ conj({F+A}*48+Y1,L1,48)
+:¦ ¦ 
+:¦ ¦ Draw1(A*4*3,T,L1)
+:¦ End
+:¦ T+12→T
+:¦ F+48→F
+:End
+:Return!If {L5+E17}
+:E8000→E
+:For({L5+E17})
+:¦ If abs({E}-PX+16→A)<4
+:¦ If abs({E+1}-PY+16→B)<3
+:¦ conj({E+2}*96*4+Y1+19200,L5+E20,96)
+:¦ B+2*144+(A+4*12/8)→r2
+:¦ Mask(A^2)
+:End
+:End
+:E+5→E
+:End
+:Return
+:Lbl Disp
+:.STANDARD DISP
+:For(Gray2)
+:End
+:Dir*96*3
+:Lbl Anim
+:DChar()
+:DispGraphrr
+:Cl16(288+6)
+:Return
+:Lbl DChar
+:conj(+Y1+(PlID*1152)+12288,L5+E20,96)
+:Bk16(288+6→r2)
+:Mask(0)
+:Return
+:Lbl Mask
+:Asm(2A319D45AFB8281A21288506103EFFED6723ED672310F60620AFED6723ED672310F8214093DD212885ED5B339D190610110B00DD7E00A6DDB6207723DD23DD7E00A6DDB6207719DD2310E8217298DD212885ED5B339D190610110B00DD7E00A6DDB6407723DD23DD7E00A6DDB6407719DD2310E8)
+:Return
+:Lbl Bk16
+:Asm(11409319116C880E020610EDA0EDA003037DC60A6F30012410F11172982A319D19118C880D20E2
+:Return
+:Lbl Cl16
+:Asm(11409319EB216C880E020610EDA0EDA003037BC60A5F30011410F12A319D11729819EB218C880D20E1)
+:Return
+:Lbl Draw1
+:Fill(L5+E20,64,0)
+:E0F0B→{L5+32}r
+:conj(r3,L5+34,24)
+:Tangent(r1,r2,L5+32)
+:conj(r3+24,L5+34,24)
+:Tangent(r1,r2,L5+32)r
+:Return
+:Lbl Draw2
+:E1717→{L1+318}r
+:conj(r3,L1+320,72)
+:Tangent(r1,r2,L1+318)
+:conj(r3+72,L1+320,72)
+:Tangent(r1,r2,L1+318)r
+:Return
+:Lbl Draw3
+:E2020→{L1+318}r
+:conj(r3+Y8,L1+320,128)
+:Tangent(r1,r2,L1+318)
+:
+:conj(Y8+r3+128,L1+320,128)
+:Tangent(r1,r2,L1+318)r
+:Return
+:Lbl Eras1
+:Asm(1140930E02C52A339D4D2A319D190610110B000D0C28093600237EE60F7718077EE6F0772336001910E9117298C10D20D4)
+:Return
+:Lbl Eras2
+:Asm(114093190E01110A000618FE00200206203600233600233600FE0020042336002B1910ED2A319D117298190D28D8)
+:Return
+:
+
+ HTML: 
+ ASCII: 
+ phpBBCode: 
+ InvisionBBCode: 
+Parse Another File
+
+
+   
+
+Complete! 16569 tokens rendered in 0.718402 seconds.
+» Need help with TI-BASIC? Check out the book "Programming the TI-83+/84+" by Christopher Mitchell.
+» Feel free to post specific code questions in the TI-BASIC subforum here at Cemetech.
+
+[Switch to Mobile view]
+
+© Copyright 2000-2013 Cemetech & Kerm Martian :: Page Execution Time: 0.737676 seconds.
+c

@@ -1,0 +1,76 @@
+___________________
+|Player save files|
+|_________________|
+
+L4: Available space: $100
+
+$00-$09:Player Name (9 chars, 1 null terminator)
+$0A-$oB:Xpos
+$0C-$0D:Ypos
+$0E-$0F:MapID
+$10-$11:OverworldX
+$12-$13:OverworldY
+$14-$15:Money
+$16-$17:XP to next level	;Battle stats
+$18-$19:Level
+$1A-$1B:Player Type
+$1C-$1D:HP
+$1E-$1F:MP
+$20-$21:MaxHP
+$22-$23:MaxMP
+$24-$25:Strength
+$26-$27:Skill
+$28-$29:Speed
+$2A-$2B:MStr
+$2C-$2D:MSkl
+$2E-$2F:Def
+$30-$33:Skills (4)
+$34-$39:Type XP
+$3A-$3F:Equipped items		;weapon, shield, armor, hat, amulet, 6th item?
+$40-$9F:Items			;Items- Item ID, qty. $30 item slots (48d)
+$A0-$FF:Player flags		;$60 player flags
+
+
+
+ok so basically a save file for a playertype is 52 bytes; name through battle stats
+
+Revised player save file, store in L2 instead?
+
+$0A: Xpos
+$0C: Ypos
+$0E: MapID
+$10: OverX
+$12: OverY
+$14: Money
+$16: PlayerList
+$18: MPla
+$1A: Save file #
+$1C: Start Items
+$7C/124: MapFlags ($48)
+/196: Flags (36bytes)
+$E7/232: Begin player1
+274: Begin player2
+316:Begin player3
+358:Begin player4
+400: Total size of player save file = 364d
+
+52 bytes of player profiles ($34)
+$00: Name
+$0A: Xp to next level
+$0C: Level
+$0E: Type
+$10: HP
+$12: MP
+$14: HPMax
+$16: MPMax
+$18: Str
+$1A: Skl
+$1C: Spe
+$1E: MStr
+$20: Mskl
+$22: Def
+$24: Skills (4bytes)
+$28: Type XP
+$2E: Equipped Items
+
+
